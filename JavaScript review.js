@@ -192,9 +192,7 @@
     console.log(newSum);
 
 //Some(check if at least an element satisfies a condition) an Every(checks if all elements satisfy a condition;l)
-const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
-
-// Something is missing in the method call below
+    const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
     console.log(words.some((word) => {
       return word.length < 6;
     }));
@@ -207,4 +205,79 @@ const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
       return word.length>5;
     }));
 
+//Objects
+//Properties
+  let spaceship = {
+    'Fuel Type' : 'Turbo Fuel',
+    homePlanet : 'Earth',
+    color: 'silver',
+    'Secret Mission' : 'Discover life outside of Earth.'
+  };
+  spaceship.color = 'glorious gold';
+  spaceship.numEngines = 4;
+  delete spaceship['Secret Mission'];
 
+//Methods
+  let retreatMessage = 'We no longer wish to conquer your planet. It is full of dogs, which we do not care for.';
+
+  let alienShip = {
+    retreat() {
+      console.log(retreatMessage);
+    },
+    takeOff() {
+      console.log('Spim... Borp... Glix... Blastoff!');
+    }
+  };
+  alienShip.retreat();
+  alienShip.takeOff();
+
+//Nested Objects
+  let spaceship = {
+    passengers: null,
+    telescope: {
+      yearBuilt: 2018,
+      model: "91031-XLT",
+      focalLength: 2032 
+    },
+    crew: {
+      captain: { 
+        name: 'Sandra', 
+        degree: 'Computer Engineering', 
+        encourageTeam() { console.log('We got this!') },
+       'favorite foods': ['cookies', 'cakes', 'candy', 'spinach'] }
+    },
+    engine: {
+      model: "Nimbus2000"
+    },
+    nanoelectronics: {
+      computer: {
+        terabytes: 100,
+        monitors: "HD"
+      },
+      'back-up': {
+        battery: "Lithium",
+        terabytes: 50
+      }
+    }
+  }; 
+
+  let capFave = spaceship.crew.captain['favorite foods'][0];
+  spaceship.passengers = [{name:'Cathy'}];
+  let firstPassenger = spaceship.passengers[0];
+
+//Functions tempering with objects
+  let spaceship = {
+    'Fuel Type' : 'Turbo Fuel',
+    homePlanet : 'Earth'
+  };
+
+  let greenEnergy = obj => {
+    obj['Fuel Type'] = 'avocado oil'
+  };
+  let remotelyDisable = obj => {
+    obj.disabled = true;
+  } 
+
+  greenEnergy(spaceship);
+  remotelyDisable(spaceship);
+  console.log(spaceship);
